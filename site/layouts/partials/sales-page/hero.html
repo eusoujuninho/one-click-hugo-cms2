@@ -1,0 +1,29 @@
+<section class="text-white bg-black pt-4 pb-4 particles-js" id="header">
+  <canvas class="background" width="1265" height="969" style="width: 100%; height: 100%;"></canvas>
+  <div class="container">
+    <div class="row justify-content-center">
+      {{ if .display_logo }}
+        <div class="col-lg-9 text-center p-4">
+          <img src="{{ .logo }}" width="400" class="img img-fluid">
+        </div>
+      {{ end }}
+      <div class="col-lg-9 text-center">
+        <h2 class="fw-bold headline h3 h1-lg">
+          {{ .headline }}
+        </h2>
+      </div>
+      <div class="col-lg-10 text-center">
+        <p class="sub-headline fs-6 fs-lg-5 p-2 pb-0">
+          {{ .subheadline }}
+        </p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <div class="d-grid d-lg-block">
+          <a class="btn btn-success btn-lg btn-cta p-4" href="{{ .cta_button.url }}" role="button">{{ .cta_button.label }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="container">
+  {{ range .Params.sections }}
+    {{ if eq .type "hero" }}
+      <section class="hero" style="background-image: url('{{ .bg_image }}');">
+        {{ if .display_logo }}
+          <img src="{{ .logo }}" alt="Logo">
+        {{ end }}
+        <h1>{{ .headline }}</h1>
+        <p>{{ .subheadline }}</p>
+        <a href="{{ .cta_button.url }}">{{ .cta_button.label }}</a>
+      </section>
+    {{ else if eq .type "benefits" }}
+      <section class="benefits">
+        <h1>{{ .headline }}</h1>
+        <img src="{{ .image }}" alt="benefits">
+        <ul>
+          {{ range .benefits_list }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ else if eq .type "methodology" }}
+      <section class="methodology">
+        <h1>{{ .headline }}</h1>
+        <div>
+          {{ .method_description | safeHTML }}
+        </div>
+      </section>
+    {{ else if eq .type "social_proof" }}
+      <section class="social_proof">
+        <!-- ... -->
+      </section>
+    {{ end }}
+    <!-- Add more sections here as needed -->
+  {{ end }}
+</div>
+{{ end }}

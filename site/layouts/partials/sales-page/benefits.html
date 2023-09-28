@@ -1,0 +1,31 @@
+<section class="border border-left-0 border-right-0 border-top-0 bg-white pt-4 pb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 ml-auto mr-auto">
+          <div class="text-center">
+            <!-- Insira aqui o código para a imagem se você tiver uma no seu YAML -->
+          </div>
+          <h2 class="text-dark text-center mt-4">
+            <strong>{{ .headline }}</strong>
+          </h2>
+          <hr class="mt-4 mb-4">
+          <div class="row p-4 pt-0 pb-0">
+            {{ $half := div (len .benefits_list) 2 | round }}
+            <div class="col-lg-6">
+              {{ range first $half .benefits_list }}
+                <p class="mb-4"><span style="color: green !important;">✔️</span> <strong>{{ . }}</strong></p>
+              {{ end }}
+            </div>
+            <div class="col-lg-6">
+              {{ range last (sub (len .benefits_list) $half) .benefits_list }}
+                <p class="mb-4"><span style="color: green !important;">✔️</span> <strong>{{ . }}</strong></p>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+    </div>
+  </section>
+  

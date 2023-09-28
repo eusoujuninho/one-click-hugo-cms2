@@ -1,0 +1,16 @@
+<div lc-helper="background" class="container d-flex justify-content-center bg-dark rounded-bottom p-4 border shadow">
+  <div class="lc-block col-xxl-12 col-lg-10 col-md-10 col-12 p-2 p-md-5">
+    <div class="lc-block">
+      <div editable="rich">
+        <h2 class="fw-bolder text-warning text-center pt-2 pt-md-4 pb-2 pb-md-4" style="color: #FE7400;">{{ .Params.headline }}</h2>
+        <div class="text-white text-center pb-2 pb-md-4">
+          {{ with .Params.method_description | safeHTML }}
+            {{ . }}
+          {{ end }}
+        </div>
+        <!-- ... resto do seu código HTML ... -->
+      </div>
+    </div>
+    <!-- ... resto do seu código HTML ... -->
+  </div>
+</div>

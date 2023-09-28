@@ -1,13 +1,19 @@
 {{ define "main" }}
+<div class="container">
+  <!-- Seu jumbotron permanece inalterado -->
+  {{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+  <!-- Loop através das seções definidas em seu conteúdo em Markdown -->
+  {{ range .Params.sections }}
+    <!-- Use printf para criar o caminho completo até o partial -->
+    {{ $partialPath := printf "sales-page/%s.html" .type }}
+    {{ partial $partialPath . }}
+  {{ end }}
 
-{{ partial "short-text" .Params.blurb}}
-
-{{ partial "2-up" .Params }}
-
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
-
-{{ partial "blog" . }}
-
+  <!-- Seus outros partials permanecem inalterados -->
+  {{ partial "short-text" .Params.blurb }}
+  {{ partial "2-up" .Params }}
+  {{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
+  {{ partial "blog" . }}
+</div>
 {{ end }}

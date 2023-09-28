@@ -1,0 +1,17 @@
+<section id="social-proof" class="mt-4">
+    <div class="container text-center py-3 py-md-5">
+      <div class="lc-block">
+        <!-- seu SVG aqui -->
+      </div>
+      <h1 class="pt-4 text-dark">
+        <strong>{{ .headline }}</strong>
+      </h1>
+      <div class="row">
+        {{ range .images }}
+          <div class="col-md-4">
+            <img src="{{ . }}" alt="Testimonial Image" class="img-fluid">
+          </div>
+        {{ end }}
+      </div>
+    </div>
+</section>  
